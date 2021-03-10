@@ -10,4 +10,10 @@ router.get('/', function (req, res, next) {
   res.render('index');
 });
 
+/* GET about page. */
+router.get('/about', function (req, res, next) {
+  res.locals.projects = projects;
+  res.render('about');
+});
+
 module.exports = router;
