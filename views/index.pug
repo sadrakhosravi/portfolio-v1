@@ -1,5 +1,20 @@
-extends layout
+extends layout.pug
 
 block content
-  h1= title
-  p Welcome to #{title}
+
+  article.portfolio-intro
+
+    h1 My Portfolio
+    p A selection of my JavaScript projects.
+
+  article.portfolio-project-thumbs
+    .projects-box.box.grid
+      each project in projects
+        .cell
+          a(href='#')
+            img.thumbnail(src=`${project.thumbnail_image}`, alt='')
+            h5= project.project_name
+
+        
+
+
