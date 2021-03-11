@@ -16,4 +16,11 @@ router.get('/about', function (req, res, next) {
   res.render('about');
 });
 
+/* GET project page. */
+router.get('/project/:id', function (req, res, next) {
+  const currentProject = projects[req.params.id];
+  res.locals.project = currentProject;
+  res.render('project');
+});
+
 module.exports = router;
