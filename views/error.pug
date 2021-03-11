@@ -1,0 +1,38 @@
+extends layout.pug
+
+block content
+
+  nav.nav
+    a(href='/')
+      span &larr;
+      |  Back
+
+  article.portfolio-about
+    .inner-wrapper.flex-row-wrap.two-col
+      .about-intro-box.box
+
+        h1= `${error.status} - ${error.message}` 
+        p Please try again by going back to the main menu. If the problem continues, please 
+          a(href="mailto:sadrakh@outlook.com") contact me
+          | .
+        
+        a.btn-link.btn-inline(href='/') Home
+        a.btn-link.btn-inline(id="btn-stack-trace") Show Stack Trace
+
+        p.error= error.stack
+
+      .skills-contact-box.box
+        h6 Contact Info
+        ul
+          li 778-322-7765
+          li sadrakh@outlook.com
+        a.btn-link(href='https://www.linkedin.com/in/sadrakh/') LinkedIn
+        a.btn-link(href='https://github.com/sadrakhosravi/') GitHub
+        a.btn-link(href='#') Twitter
+
+    nav.nav
+      a(href='/')
+        span &larr;
+        |  Back
+
+  script(src="/static/js/stack-trace.js") 

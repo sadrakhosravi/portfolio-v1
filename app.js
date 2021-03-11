@@ -26,7 +26,15 @@ app.use(function (req, res, next) {
 
 // error handler
 app.use(function (err, req, res, next) {
-  res.render('about');
+  res.locals.error = err;
+
+  if (err.status === 404) {
+    res.status(err.status);
+    res.render('error');
+  } else {
+    res.status(500);
+    res.render('error');
+  }
 });
 
 module.exports = app;

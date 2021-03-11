@@ -18,6 +18,20 @@ router.get('/about', function (req, res, next) {
 
 /* GET project page. */
 router.get('/project/:id', function (req, res, next) {
+  if (req.params.id > projects.length - 1 || req.params.id < 0) {
+    console.log('Project data does not exist!');
+    const err = new Error('Project page does not exist');
+    err.status = 404;
+    next(err);
+  }
+
+  if (isNaN(req.params.id)) {
+    console.log('Project page does not exist');
+    const err = new Error('Project page does not exist');
+    err.status = 404;
+    next(err);
+  }
+
   const currentProject = projects[req.params.id];
   res.locals.project = currentProject;
   res.render('project');
